@@ -9,7 +9,8 @@
   <script>
     function handleCredentialResponse(response) {
       console.log("Encoded JWT ID token: " + response.credential);
-      alert("Logged in successfully!");
+      // Redirect to success page
+      window.location.href = "success.html";
     }
 
     window.onload = function () {
@@ -17,7 +18,7 @@
         client_id: '585277304863-7qk9mslrc81624res4cgejl878lvmln8.apps.googleusercontent.com',
         callback: handleCredentialResponse,
         auto_select: false,
-        login_uri: 'https://manjunathpsanadi.github.io/Scratch/signup.html'
+        login_uri: 'https://manjunathpsanadi.github.io/your-repository-name/signup.html'
       });
       google.accounts.id.prompt(); // Display the One Tap dialog
     }
@@ -27,7 +28,7 @@
   <div class="container">
     <h1>Sign Up with Google</h1>
     <div class="contact">Contact: manjunathps440@gmail.com</div>
-    <div class="date">Date: July 2, 2024</div>
+    <div class="date">Date: July 3, 2024</div>
   </div>
 </body>
 </html>
