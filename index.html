@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamtha And ManThronix</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id" content="854209155432-s5dcc0kqc18m3ngidmsc7fpjdcvvasjc.apps.googleusercontent.com">
+</head>
+<body>
+    <div id="menu-drawer" class="drawer">
+        <div class="drawer-content">
+            <div class="logo">Gamtha And ManThronix</div>
+            <nav>
+                <ul>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#contactus">Contact Us</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#aichat">AI Chat Support</a></li>
+                    <li><a href="#terms">Terms and Conditions</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <button id="menu-toggle" class="menu-toggle">☰</button>
+    <div class="content">
+        <header>
+            <h1>Gamtha & ManThronix</h1>
+        </header>
+        <main>
+            <section id="products">
+                <h2>Products</h2>
+                <p>Details about products.</p>
+            </section>
+            <section id="contactus">
+                <h2>Contact Us</h2>
+                <p>Contact details here.</p>
+            </section>
+            <section id="features">
+                <h2>Features</h2>
+                <p>Features details here.</p>
+            </section>
+            <section id="about">
+                <h2>About</h2>
+                <p>About details here.</p>
+            </section>
+            <section id="aichat">
+                <h2>AI Chat Support</h2>
+                <p>AI Chat support details here.</p>
+            </section>
+            <section id="terms">
+                <h2>Terms and Conditions</h2>
+                <p>Terms and conditions details here.</p>
+            </section>
+            <section id="pricing">
+                <h2>Pricing</h2>
+                <p>Pricing details here.</p>
+            </section>
+            <section id="signin">
+                <h2><a href="signup.html">Sign Up with Google</a></h2>
+                <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                <button onclick="signOut()">Sign Out</button>
+            </section>
+        </main>
+        <footer>
+            <p>Gamtha And ManThronix Business Explanation</p>
+            <ul>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#contactus">Contact Us</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#aichat">AI Chat Support</a></li>
+                <li><a href="#terms">Terms and Conditions</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+            </ul>
+        </footer>
+    </div>
+    <script src="scripts.js"></script>
+    <script>
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log("ID: " + profile.getId());
+            console.log('Full Name: ' + profile.getName());
+            console.log('Given Name: ' + profile.getGivenName());
+            console.log('Family Name: ' + profile.getFamilyName());
+            console.log("Image URL: " + profile.getImageUrl());
+            console.log("Email: " + profile.getEmail());
+
+            var id_token = googleUser.getAuthResponse().id_token;
+            console.log("ID Token: " + id_token);
+        }
+
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+            });
+        }
+    </script>
+</body>
+</html>
