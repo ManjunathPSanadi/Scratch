@@ -1,34 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Google Sign-In</title>
+  <link rel="stylesheet" href="styles.css">
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script>
     function handleCredentialResponse(response) {
       console.log("Encoded JWT ID token: " + response.credential);
-      // Send this token to your server
-      fetch('/api/verify-token', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ token: response.credential })
-      })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error('Error:', error));
+      alert("Logged in successfully!");
     }
 
     window.onload = function () {
       google.accounts.id.initialize({
-        client_id: '854209155432-s5dcc0kqc18m3ngidmsc7fpjdcvvasjc.apps.googleusercontent.com',
-        callback: handleCredentialResponse
+        client_id: '585277304863-7qk9mslrc81624res4cgejl878lvmln8.apps.googleusercontent.com',
+        callback: handleCredentialResponse,
+        auto_select: false,
+        login_uri: 'https://manjunathpsanadi.github.io/your-repository-name/signup.html'
       });
       google.accounts.id.prompt(); // Display the One Tap dialog
     }
   </script>
 </head>
 <body>
-  <h1>Sign Up with Google</h1>
+  <div class="container">
+    <h1>Sign Up with Google</h1>
+    <div class="contact">Contact: manjunathps440@gmail.com</div>
+    <div class="date">Date: July 2, 2024</div>
+  </div>
 </body>
 </html>
